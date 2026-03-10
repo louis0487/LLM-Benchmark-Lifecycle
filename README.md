@@ -29,6 +29,10 @@ By calculating the correlation matrix across different benchmarks, the metrics a
 * **Redundant Clusters**: (e.g., MMLU, GSM8K, HellaSwag) High positive correlation indicates these test identical underlying capabilities.
 * **Independent Metrics**: (e.g., SWE-bench, FrontierMath) Low correlation with traditional metrics, representing unique dimensions of LLM capability.
 
+### 3. Benchmark Score Range and Median Score 
+The max score was chosen out of all the LLM models for each benchmark, as was the median score for each benchmark. A higher gap between the max and median score
+showed that the benchmark was more likely to be a frontier benchmark as most LLM models had still not sovled the parameters of the specific benchmark, while a lower gap between the max and median score showed that the benchmark was more saturated with models increasingly scoring around the same, decreasing the use of the benchmark as a tool to evaluate the performance of different LLM models. 
+
 ## Dataset: The Golden 8
 
 This project focuses on eight representative datasets curated from Epoch AI's external trackers:
