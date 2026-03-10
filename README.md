@@ -15,7 +15,7 @@ This project analyzes the current landscape of Large Language Model (LLM) evalua
 ### 1. Performance Saturation (S-Curve)
 The project models benchmark scores using a Logistic Growth Function:
 
-f(x) = L / (1 + e^(-k(x-x_0)))
+$$f(x) = \frac{L}{1 + e^{-k(x-x_0)}}$$
 
 Where:
 * **L** is the theoretical maximum score (ceiling).
