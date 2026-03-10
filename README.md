@@ -1,22 +1,57 @@
-# LLM Benchmark Lifecycle & Clustering Analysis
+# LLM Evaluation Crisis: Benchmarking Saturation and Redundancy Analysis
 
-## Overview
-[cite_start]Progress in large language models is measured through benchmarks, yet benchmarks themselves evolve: older ones saturate and fade from reporting, while new ones emerge[cite: 505]. [cite_start]This project investigates whether LLM benchmarks exhibit measurable lifecycle patterns (growth, saturation, decline) and whether benchmarks cluster into distinct capability groups based on model performance[cite: 506]. [cite_start]By constructing and analyzing a curated time-indexed dataset, we provide a data-driven view of how evaluation standards change as models improve[cite: 507].
+This project analyzes the current landscape of Large Language Model (LLM) evaluations. By utilizing the Epoch AI dataset, we investigate two critical issues in the field:
+1. **Benchmark Saturation**: Older benchmarks are reaching their physical limits (100% score), losing discriminative power.
+2. **Evaluation Redundancy**: Many popular benchmarks are highly correlated, leading to redundant computation and overlapping capability measurements.
 
-## Data Curation
-To capture a comprehensive view of LLM progress, our dataset includes:
-* [cite_start]**Frontier Models:** Models released by OpenAI, Anthropic, and Google DeepMind[cite: 510].
-* [cite_start]**Open-Source Models:** Popular base models on Hugging Face, including DeepSeek R1, Kimi K2.5, and Zhipu GLM 5[cite: 511].
-* [cite_start]**Sources:** Official benchmark leaderboards (e.g., ARC-AGI), technical reports, company publications, and reputable third-party aggregators (e.g., Artificial Analysis, Epoch AI)[cite: 513, 514, 515].
+## Key Features
 
-## Technical Approach
-* [cite_start]**Lifecycle Analysis:** We fit nonlinear growth curves (e.g., logistic or Gompertz models) to benchmark score trajectories[cite: 518]. [cite_start]This allows us to estimate improvement rates, detect potential saturation points, and track reporting frequency to assess when benchmarks lose discriminative power[cite: 518, 519].
-* [cite_start]**Structural Analysis:** We construct a model-by-benchmark score matrix and apply correlation-based clustering[cite: 520]. [cite_start]This identifies groups of benchmarks that reflect similar capability domains[cite: 520, 521]. 
+* **S-Curve (Logistic) Fitting**: Mathematical modeling of the performance lifecycle of benchmarks to predict theoretical ceilings and identify saturation points.
+* **Capability Clustering**: Implementation of hierarchical clustering and Pearson correlation to differentiate between redundant and orthogonal evaluation metrics.
+* **Organization-Aware Visualization**: Tracking the competitive landscape by categorizing data points by major AI laboratories (e.g., OpenAI, Google DeepMind, Anthropic).
 
-## Applications & Impact
-[cite_start]This analysis provides a comprehensive picture of LLM progress from 2019 to 2026[cite: 524]. [cite_start]Using time-series graphs, fitted growth curves, and clustering heatmaps, we make benchmark saturation and evaluation shifts visually clear[cite: 525]. [cite_start]These insights help researchers identify redundancy or gaps in evaluation coverage and support better transparency around how AI capabilities are measured and communicated[cite: 526, 527].
+## Core Analytics
 
-## Team
-* [cite_start]**Data Curation:** Xuanrui Zhang, Qi Liu [cite: 529]
-* [cite_start]**Data Analysis:** Louis Lin, Minghui Jiang [cite: 529]
-* [cite_start]**Data Visualization:** Karthikraj Maheshkumar [cite: 529]
+### 1. Performance Saturation (S-Curve)
+The project models benchmark scores using a Logistic Growth Function:
+
+f(x) = L / (1 + e^(-k(x-x_0)))
+
+Where:
+* **L** is the theoretical maximum score (ceiling).
+* **k** is the growth rate.
+* **x_0** is the midpoint of the growth curve.
+
+Analysis demonstrates that benchmarks such as MMLU have effectively reached saturation, rendering them less effective for evaluating frontier models.
+
+### 2. Redundancy Analysis (Clustered Heatmap)
+By calculating the correlation matrix across different benchmarks, the metrics are categorized into:
+* **Redundant Clusters**: (e.g., MMLU, GSM8K, HellaSwag) High positive correlation indicates these test identical underlying capabilities.
+* **Independent Metrics**: (e.g., SWE-bench, FrontierMath) Low correlation with traditional metrics, representing unique dimensions of LLM capability.
+
+## Dataset: The Golden 8
+
+This project focuses on eight representative datasets curated from Epoch AI's external trackers:
+* **Classic Benchmarks**: `mmlu_external.csv`, `gsm8k_external.csv`, `hella_swag_external.csv`
+* **Frontier Challenges**: `gpqa_diamond.csv`, `frontiermath.csv`, `arc_agi_external.csv`
+* **Vertical Domains**: `swe_bench_verified.csv` (Software Engineering), `chess_puzzles.csv` (Logic and Strategy)
+
+## Installation and Usage
+
+### Prerequisites
+* Python 3.8+
+* Jupyter Notebook environment
+* Dependencies: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`
+
+### Execution
+1.  Clone the repository.
+2.  Ensure the required `.csv` files are located in the `benchmark_data/` directory.
+3.  Open and run `analysis.ipynb`:
+    * **Cell 1**: Data Loading and Preprocessing.
+    * **Cell 2**: Logistic Curve fitting and visualization for specific benchmarks.
+    * **Cell 3**: Clustered Heatmap generation for correlation analysis.
+
+## Results Summary
+
+* **MMLU Plateau**: Statistical evidence shows a performance plateau beginning in 2024, with the trendline approaching a 100% ceiling.
+* **Redundancy Map**: Identification of deep correlation clusters among reasoning tasks suggests a need for a more streamlined, "compressed" evaluation framework.
