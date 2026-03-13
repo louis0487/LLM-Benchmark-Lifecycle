@@ -3,7 +3,12 @@ import glob
 import os
 
 # 1. Look inside the 'benchmark_data' folder for CSVs
-folder_path = 'benchmark_data'
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR =  ROOT /'benchmark_data'
+OUTPUT_FILE = ROOT / "results" / 'Focused_Benchmark_Analysis.png'
+
+folder_path = DATA_DIR
 file_paths = glob.glob(os.path.join(folder_path, '*.csv'))
 
 summary_data = []

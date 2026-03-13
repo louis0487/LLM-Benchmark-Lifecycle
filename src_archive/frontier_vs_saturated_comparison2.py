@@ -1,10 +1,14 @@
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import os
 
 # Configuration
-DATA_DIR = 'benchmark_data'
-OUTPUT_FILE = 'Focused_Benchmark_Analysis.png'
+from pathlib import Path
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR =  ROOT /'benchmark_data'
+OUTPUT_FILE = ROOT / "results" / 'Focused_Benchmark_Analysis.png'
 
 # Specific files identified in your scan
 benchmarks = [
