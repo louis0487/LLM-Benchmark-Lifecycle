@@ -18,7 +18,7 @@ import numpy as np
 
 
 BENCHMARK_DIR = ROOT / "benchmark_data"
-OUTPUT_PATH = BENCHMARK_DIR / "benchmark_quadrant.png"
+OUTPUT_PATH = ROOT / "results" / "benchmark_quadrant.png"
 MIN_EVALUATIONS = 31
 RECENT_CUTOFF = datetime(2025, 3, 1)
 IGNORED_FILES = {

@@ -20,7 +20,7 @@ from scipy.optimize import curve_fit
 
 
 BENCHMARK_DIR = ROOT / "benchmark_data"
-OUTPUT_PATH = BENCHMARK_DIR / "frontier_overlay_logistic.png"
+OUTPUT_PATH = ROOT / "results" / "frontier_overlay_logistic.png"
 MIN_EVALUATIONS = 31
 IGNORED_FILES = {
     "metr_time_horizons_external.csv",

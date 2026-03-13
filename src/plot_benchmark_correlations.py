@@ -16,7 +16,7 @@ import numpy as np
 
 
 MERGED_PATH = ROOT / "benchmark_data" / "merged_benchmark_data.csv"
-OUTPUT_PATH = ROOT / "benchmark_data" / "benchmark_correlation_heatmap.png"
+OUTPUT_PATH = ROOT / "results" / "benchmark_correlation_heatmap.png"
 MIN_PAIRWISE_OVERLAP = 10
 EXCLUDED_BENCHMARKS = {
     "metr_time_horizons",
