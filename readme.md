@@ -1,6 +1,6 @@
-# LLM Evaluation Crisis: Benchmarking Saturation and Redundancy Analysis
+# The Lifecycle and Clustering of LLM Benchmarks – A Data Driven Analysis
 ## Project Information
-For project information, technical approach and results, please see `project.md`. 
+For project information, technical approach and results, please see `docs/project.md`. 
 
 ## How to run
 

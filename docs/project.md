@@ -1,4 +1,4 @@
-# LLM Evaluation Crisis: Benchmarking Saturation and Redundancy Analysis
+# The Lifecycle and Clustering of LLM Benchmarks – A Data Driven Analysis
 
 This project analyzes the current landscape of Large Language Model (LLM) evaluations. Using a compiled benchmark dataset, we investigate two central dynamics shaping the evaluation ecosystem:
 
